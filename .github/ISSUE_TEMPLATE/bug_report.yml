@@ -1,0 +1,36 @@
+name: Bug report
+description: Report a reproducible toolkit defect (not a generic driver support request).
+title: "[Bug]: "
+labels: [bug]
+body:
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: "What happened and what did you expect?"
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Toolkit version or commit
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: "Windows build, PowerShell version, model, driver version, and FireWire controller."
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Reproduction steps
+    validations:
+      required: true
+  - type: textarea
+    id: diagnostics
+    attributes:
+      label: Sanitized diagnostics
+      description: "Remove personal data and never attach proprietary files or keys."

@@ -1,0 +1,35 @@
+name: Build portable package
+
+on:
+  workflow_dispatch:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: write
+
+jobs:
+  package:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Refuse proprietary binaries
+        shell: powershell
+        run: |
+          $blocked = @(Get-ChildItem -Recurse -File | Where-Object Extension -in '.sys','.cat','.dll','.exe')
+          if ($blocked) { throw "Forbidden binaries: $($blocked.FullName -join ', ')" }
+      - name: Build ZIP and SHA-256
+        shell: powershell
+        run: |
+          $version = '${{ github.ref_name }}'.TrimStart('v')
+          if (-not $version) { $version = 'dev' }
+          .\scripts\Build-PortablePackage.ps1 -Version $version
+      - uses: actions/upload-artifact@v4
+        with:
+          name: onyx-toolkit
+          path: dist/*
+      - name: Attach tagged release assets
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/*

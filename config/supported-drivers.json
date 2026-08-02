@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "drivers": [
+    {
+      "name": "Mackie Onyx-i FireWire Driver",
+      "provider": "LOUD Technologies Inc.",
+      "infName": "OnyxFireWire.inf",
+      "catalogFile": "OnyxFireWire.cat",
+      "driverVersion": "4.1.0.14624",
+      "driverDate": "2012-10-03",
+      "architectures": ["amd64"],
+      "requiredFiles": [
+        "OnyxFireWire.inf",
+        "OnyxFireWire.sys",
+        "OnyxFireWireAudio.sys",
+        "OnyxFireWireMidi.sys"
+      ],
+      "optionalFiles": [
+        "OnyxFireWire.cat",
+        "OnyxFireWireAsio.dll",
+        "OnyxFireWire.exe",
+        "cpl.defs"
+      ],
+      "supportedHardwareIds": ["1394\\LOUD&ONYXI"],
+      "testedModels": ["Onyx 1640i"]
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+name: Compatibility report
+description: Report a tested Onyx-i and Windows configuration.
+title: "[Compatibility]: "
+labels: [compatibility]
+body:
+  - type: input
+    id: model
+    attributes:
+      label: Exact Onyx-i model
+    validations:
+      required: true
+  - type: input
+    id: driver
+    attributes:
+      label: Driver date and version
+    validations:
+      required: true
+  - type: input
+    id: windows
+    attributes:
+      label: Windows edition and full build
+    validations:
+      required: true
+  - type: textarea
+    id: security
+    attributes:
+      label: Security state
+      description: "Secure Boot, Test Mode, VBS, HVCI, and hypervisorlaunchtype."
+    validations:
+      required: true
+  - type: input
+    id: firewire
+    attributes:
+      label: FireWire controller and driver
+    validations:
+      required: true
+  - type: dropdown
+    id: result
+    attributes:
+      label: Result
+      options: [Fully working, Partially working, Not working]
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: WDM, MIDI, ASIO, channels, DAW, and diagnostic conclusions

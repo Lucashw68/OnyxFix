@@ -1,0 +1,2 @@
+Place your personally obtained official Onyx-i driver files in this directory.
+Do not commit them. See README.md for the required file names.

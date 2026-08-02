@@ -1,0 +1,10 @@
+logs/*
+!logs/.gitkeep
+work/*
+!work/.gitkeep
+driver/*
+!driver/README.md
+!driver/PLACE_OFFICIAL_DRIVER_FILES_HERE.txt
+*.zip
+*.sha256
+TestResults/
