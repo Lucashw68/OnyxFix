@@ -4,6 +4,10 @@ All notable changes use a simplified Keep a Changelog format.
 
 ## [Unreleased]
 
+### Added
+
+- Official Mackie/Onyx product imagery and attribution at the top of the README.
+
 ## [0.1.1] - 2026-08-03
 
 ### Added

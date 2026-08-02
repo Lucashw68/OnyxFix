@@ -1,3 +1,15 @@
+<div align="center">
+  <a href="https://mackie-jp.com/mixers/onyxiseries/onyx1640i/">
+    <img src="https://mackie-jp.com/images/nav/mackie_logo.gif" alt="Mackie" height="52">
+  </a>
+  <br><br>
+  <img src="https://mackie-jp.com/images/products/onyxi/1640i_mast.jpg" alt="Mackie Onyx 1640i FireWire Recording Mixer" width="760">
+  <br><br>
+  <img src="https://mackie-jp.com/images/products/onyxi/1640i_on.gif" alt="Mackie Onyx 1640i overview" height="300">
+  &nbsp;&nbsp;
+  <img src="https://mackie-jp.com/images/products/onyxi/Onyx%201640i%20Top.jpg" alt="Mackie Onyx 1640i top view" height="300">
+</div>
+
 # OnyxFix - Mackie Onyx-i Windows 11 Portable Toolkit
 
 > **Security warning:** this toolkit requires Windows Test Mode and Secure Boot to
@@ -11,7 +23,8 @@ Secure Boot bypass.
 
 **Not affiliated with Mackie or LOUD Technologies.** This unofficial community
 project is not developed, approved, supported, or endorsed by Mackie or LOUD
-Technologies.
+Technologies. Product images and trademarks shown above belong to their respective
+owners and are referenced from the official Mackie Japan website for identification.
 
 ## Download
 
