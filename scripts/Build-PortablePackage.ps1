@@ -2,7 +2,9 @@
 [CmdletBinding(SupportsShouldProcess)]
 param(
     [string]$OutputDirectory,
-    [string]$Version = '0.1.0'
+    [string]$Version = '0.1.0',
+    [ValidatePattern('^[A-Za-z0-9][A-Za-z0-9._-]*$')]
+    [string]$ArchiveBaseName
 )
 Set-StrictMode -Version Latest
 $ErrorActionPreference = 'Stop'
@@ -10,13 +12,14 @@ $ErrorActionPreference = 'Stop'
 
 $root = Get-OnyxToolkitRoot
 if (-not $OutputDirectory) { $OutputDirectory = Join-Path $root 'dist' }
+if (-not $ArchiveBaseName) { $ArchiveBaseName = "Mackie-Onyx-i-Windows11-Portable-Toolkit-$Version" }
 $forbidden = @(Get-ChildItem -LiteralPath $root -Recurse -File | Where-Object {
     $_.FullName -notmatch '[\\/]\.git[\\/]|[\\/]dist[\\/]|[\\/]driver[\\/]|[\\/]work[\\/]|[\\/]logs[\\/]' -and
     $_.Extension -in @('.sys', '.cat', '.dll', '.exe')
 })
 if ($forbidden.Count) { throw "Proprietary/binary files must not be packaged: $($forbidden.FullName -join ', ')" }
 $stage = Join-Path ([IO.Path]::GetTempPath()) "OnyxToolkit-package-$([guid]::NewGuid().ToString('N'))"
-$zip = Join-Path $OutputDirectory "Mackie-Onyx-i-Windows11-Portable-Toolkit-$Version.zip"
+$zip = Join-Path $OutputDirectory "$ArchiveBaseName.zip"
 if ($PSCmdlet.ShouldProcess($zip, 'Build portable source-only ZIP')) {
     try {
         $null = New-Item -ItemType Directory -Path $stage -Force

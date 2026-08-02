@@ -23,7 +23,9 @@ jobs:
         run: |
           $version = '${{ github.ref_name }}'.TrimStart('v')
           if (-not $version) { $version = 'dev' }
-          .\scripts\Build-PortablePackage.ps1 -Version $version
+          .\scripts\Build-PortablePackage.ps1 `
+            -Version $version `
+            -ArchiveBaseName 'Mackie-Onyx-i-Windows11-Portable-Toolkit'
       - uses: actions/upload-artifact@v4
         with:
           name: onyx-toolkit
@@ -33,3 +35,5 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           files: dist/*
+          generate_release_notes: true
+          name: OnyxFix ${{ github.ref_name }}

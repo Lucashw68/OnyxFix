@@ -25,6 +25,7 @@ driver and does not make the driver compatible with Secure Boot.
 - Official/proprietary binaries are never committed or packaged.
 - The private key remains non-exportable by the toolkit. Only a public CER is exported.
 - Runtime artefacts belong in ignored `driver/`, `work/`, and `logs/` directories.
+- Tagged releases publish a stable source-only ZIP filename for the README's latest-release link.
 - UI text is concise bilingual French/English where action or risk matters most.
 
 ## Known environmental limits

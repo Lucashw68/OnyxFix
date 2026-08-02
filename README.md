@@ -13,6 +13,18 @@ Secure Boot bypass.
 project is not developed, approved, supported, or endorsed by Mackie or LOUD
 Technologies.
 
+## Download
+
+[![Download latest portable ZIP](https://img.shields.io/badge/download-latest_portable_ZIP-0969da?logo=github)](https://github.com/Lucashw68/OnyxFix/releases/latest/download/Mackie-Onyx-i-Windows11-Portable-Toolkit.zip)
+
+- [Download the latest portable toolkit](https://github.com/Lucashw68/OnyxFix/releases/latest/download/Mackie-Onyx-i-Windows11-Portable-Toolkit.zip)
+- [Download its SHA-256 checksum](https://github.com/Lucashw68/OnyxFix/releases/latest/download/Mackie-Onyx-i-Windows11-Portable-Toolkit.zip.sha256)
+- [Browse all releases](https://github.com/Lucashw68/OnyxFix/releases)
+
+The release is source-only and contains no proprietary Mackie/LOUD driver files.
+After downloading, extract the ZIP and place your legally obtained official files
+in `driver\` before launching the toolkit.
+
 ## Why this project ?
 
 I have a Mackie Onyx 1640i console and wanted to use it with Windows 11 x64.
@@ -20,7 +32,7 @@ I have a Mackie Onyx 1640i console and wanted to use it with Windows 11 x64.
 ## Why its needed ?
 
 Because the original Onyx-i driver was last updated in 2012, it is not compatible with Windows 11 x64 Secure Boot. The driver is blocked by Code Integrity and
-cannot be loaded. This toolkit automates a self test-signed installation of the original driver so that it can be used on Windows 11 x64 with Secure Boot disabled. The toolkit does not modify the original driver files, and it does not make the driver Secure Boot compatible.
+cannot be loaded. This toolkit automates a locally test-signed installation of the original driver so that it can be used on Windows 11 x64 with Secure Boot disabled. It backs up the supplied files before appending signatures to the working SYS copies; it does not make the driver Secure Boot compatible.
 
 ## Compatibility status
 
@@ -66,7 +78,7 @@ Optional companion files are listed in [driver/README.md](driver/README.md).
 
 ## Quick start
 
-1. Download or clone this source-only toolkit.
+1. Download the portable ZIP above, or clone this source-only repository.
 2. Copy your personally obtained official driver files into `driver\`.
 3. Right-click `Start-OnyxToolkit.cmd` and run it, or double-click it and approve elevation.
 4. Run menu items 1 through 7 in order. Enable Test Mode and configure UEFI when required.
@@ -131,4 +143,6 @@ On Windows PowerShell:
 .\scripts\Build-PortablePackage.ps1 -Version 0.1.0
 ```
 
-The command creates a source-only ZIP and adjacent SHA-256 file in `dist\`.
+The command creates a versioned source-only ZIP and adjacent SHA-256 file in `dist\`.
+Release builds use a stable filename so the README download link always targets
+the newest tagged release.

@@ -46,7 +46,9 @@ Describe 'PnPUtil parsing and driver deletion safety' {
 
     It 'does not create a portable archive with WhatIf' {
         $output = Join-Path $TestDrive 'dist'
-        & (Join-Path $PSScriptRoot '../scripts/Build-PortablePackage.ps1') -OutputDirectory $output -WhatIf | Out-Null
+        $result = & (Join-Path $PSScriptRoot '../scripts/Build-PortablePackage.ps1') `
+            -OutputDirectory $output -ArchiveBaseName 'OnyxFix-Portable' -WhatIf
         Test-Path -LiteralPath $output | Should -BeFalse
+        [IO.Path]::GetFileName($result.Zip) | Should -Be 'OnyxFix-Portable.zip'
     }
 }
