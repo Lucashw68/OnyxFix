@@ -63,8 +63,7 @@ risk but does not prove that an old kernel driver is safe or compatible.
 
 The extracted-drivers ZIP was also inspected on 2026-08-03. It contains the eight
 expected Onyx package files, `cpl.defs`, and the original release-notes document;
-the previously observed uninstall and Vista installer artefacts are no longer
-present. Copy only the expected files listed below into `driver\`.
+copy only the expected files listed below into `driver\`.
 
 ## Why this project ?
 
