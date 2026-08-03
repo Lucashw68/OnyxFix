@@ -7,7 +7,7 @@ All notable changes use a simplified Keep a Changelog format.
 ### Added
 
 - Official Mackie/Onyx product imagery and attribution at the top of the README.
-- Third-party archival-driver link with recorded SHA-256 values, VirusTotal lookups, and an extra-file warning.
+- Third-party archival-driver link with updated SHA-256 values, VirusTotal lookups, and verified archive contents.
 
 ## [0.1.1] - 2026-08-03
 

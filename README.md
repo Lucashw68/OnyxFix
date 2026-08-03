@@ -53,7 +53,7 @@ compare its SHA-256 before using it. The following values were observed on
 
 | Internet Archive file | SHA-256 | VirusTotal |
 |---|---|---|
-| `OnyxFireWire-v4.1-Extracted-Drivers.zip` | `19f503e06ce03b840558176b790cb003597d53c876a137f3c4945ecd086649eb` | [View report / search hash](https://www.virustotal.com/gui/file/19f503e06ce03b840558176b790cb003597d53c876a137f3c4945ecd086649eb) |
+| `OnyxFireWire-v4.1-Extracted-Drivers.zip` | `baa49c22c7063dcf8fe7d04b97e27a3a9e4720be7df0807990e161e11cd1b8bf` | [View report / search hash](https://www.virustotal.com/gui/file/baa49c22c7063dcf8fe7d04b97e27a3a9e4720be7df0807990e161e11cd1b8bf) |
 | `OnyxFireWire-v4.1-Installer.zip` | `d44c41f948fbf4812afad9f30af0f1744b66494fe638ee887e9da4e34a45f602` | [View report / search hash](https://www.virustotal.com/gui/file/d44c41f948fbf4812afad9f30af0f1744b66494fe638ee887e9da4e34a45f602) |
 
 These links query VirusTotal by hash and do not upload the archives. VirusTotal may
@@ -61,11 +61,10 @@ show no report until someone submits the exact file. No detection score is embed
 because reports can change as antivirus engines are updated. A clean report lowers
 risk but does not prove that an old kernel driver is safe or compatible.
 
-> **Archive-content warning:** inspection of the extracted-drivers ZIP found the
-> expected 2012–2013 Onyx files, but also `unins000.exe` and `unins000.dat` dated
-> 2026-07-31. Those additional uninstall artefacts are not part of the validated
-> baseline. Do not execute them; copy only the expected files listed below into
-> `driver\`, and scan them locally before use.
+The extracted-drivers ZIP was also inspected on 2026-08-03. It contains the eight
+expected Onyx package files, `cpl.defs`, and the original release-notes document;
+the previously observed uninstall and Vista installer artefacts are no longer
+present. Copy only the expected files listed below into `driver\`.
 
 ## Why this project ?
 
