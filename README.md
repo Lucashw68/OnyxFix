@@ -38,6 +38,41 @@ The release is source-only and contains no proprietary Mackie/LOUD driver files.
 After downloading, extract the ZIP and place your legally obtained official files
 in `driver\` before launching the toolkit.
 
+## Obtaining the legacy driver
+
+A community-uploaded copy of the Onyx FireWire v4.1 package is currently listed
+on [Internet Archive](https://archive.org/details/onyx-fire-wire-v-4.1). This is a
+third-party archival source, not an official toolkit mirror or endorsement. Its
+contents, rights status, integrity, and continued availability are controlled by
+the uploader and Internet Archive. Check that you are permitted to download and
+use it in your jurisdiction.
+
+OnyxFix does not download, bundle, execute, or redistribute this archive. Always
+scan the downloaded file **before extraction**, then scan the extracted directory
+again. In an elevated Windows PowerShell console:
+
+```powershell
+$download = Read-Host 'Full path to the downloaded archive'
+$archive = (Resolve-Path -LiteralPath $download).Path
+
+# Record this value in case the archive changes later.
+Get-FileHash -LiteralPath $archive -Algorithm SHA256
+
+# Update Microsoft Defender and scan the still-packed archive.
+Update-MpSignature
+Start-MpScan -ScanType CustomScan -ScanPath $archive
+
+# After extraction, scan the complete directory before running any file.
+$extracted = (Resolve-Path -LiteralPath 'C:\path\to\extracted-driver').Path
+Start-MpScan -ScanType CustomScan -ScanPath $extracted
+```
+
+Review **Windows Security → Virus & threat protection → Protection history** after
+both scans. You may also search the SHA-256 on
+[VirusTotal](https://www.virustotal.com/gui/home/search); searching a hash avoids
+uploading the proprietary archive to another service. A clean scan lowers risk but
+does not prove that an old kernel driver is safe or compatible.
+
 ## Why this project ?
 
 I have a Mackie Onyx 1640i console and wanted to use it with Windows 11 x64.
@@ -72,7 +107,7 @@ flowchart LR
   G --> H[Diagnose CI, PnP, WDM and ASIO]
 ```
 
-The repository and releases contain no Mackie/LOUD/TC Applied driver, installer,
+The repository and OnyxFix releases contain no Mackie/LOUD/TC Applied driver, installer,
 DLL, SYS, INF, CAT, or proprietary executable. You must obtain the official files
 yourself and place them in `driver\`.
 

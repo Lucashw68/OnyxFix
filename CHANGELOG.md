@@ -7,6 +7,7 @@ All notable changes use a simplified Keep a Changelog format.
 ### Added
 
 - Official Mackie/Onyx product imagery and attribution at the top of the README.
+- Third-party archival-driver link with pre/post-extraction Microsoft Defender guidance.
 
 ## [0.1.1] - 2026-08-03
 
