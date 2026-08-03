@@ -27,7 +27,7 @@ driver and does not make the driver compatible with Secure Boot.
 - Runtime artefacts belong in ignored `driver/`, `work/`, and `logs/` directories.
 - Tagged releases publish a stable source-only ZIP filename for the README's latest-release link.
 - README brand/product imagery is referenced from official Mackie Japan URLs, not redistributed in the repository.
-- The Internet Archive driver page is linked as an untrusted third-party source; no automatic download or execution is implemented.
+- The Internet Archive driver page is linked as an untrusted third-party source with dated SHA-256 and VirusTotal lookups; no automatic download, upload, or execution is implemented.
 - UI text is concise bilingual French/English where action or risk matters most.
 
 ## Known environmental limits

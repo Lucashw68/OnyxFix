@@ -48,30 +48,24 @@ the uploader and Internet Archive. Check that you are permitted to download and
 use it in your jurisdiction.
 
 OnyxFix does not download, bundle, execute, or redistribute this archive. Always
-scan the downloaded file **before extraction**, then scan the extracted directory
-again. In an elevated Windows PowerShell console:
+compare its SHA-256 before using it. The following values were observed on
+2026-08-03; they no longer apply if the Internet Archive files change.
 
-```powershell
-$download = Read-Host 'Full path to the downloaded archive'
-$archive = (Resolve-Path -LiteralPath $download).Path
+| Internet Archive file | SHA-256 | VirusTotal |
+|---|---|---|
+| `OnyxFireWire-v4.1-Extracted-Drivers.zip` | `19f503e06ce03b840558176b790cb003597d53c876a137f3c4945ecd086649eb` | [View report / search hash](https://www.virustotal.com/gui/file/19f503e06ce03b840558176b790cb003597d53c876a137f3c4945ecd086649eb) |
+| `OnyxFireWire-v4.1-Installer.zip` | `d44c41f948fbf4812afad9f30af0f1744b66494fe638ee887e9da4e34a45f602` | [View report / search hash](https://www.virustotal.com/gui/file/d44c41f948fbf4812afad9f30af0f1744b66494fe638ee887e9da4e34a45f602) |
 
-# Record this value in case the archive changes later.
-Get-FileHash -LiteralPath $archive -Algorithm SHA256
+These links query VirusTotal by hash and do not upload the archives. VirusTotal may
+show no report until someone submits the exact file. No detection score is embedded
+because reports can change as antivirus engines are updated. A clean report lowers
+risk but does not prove that an old kernel driver is safe or compatible.
 
-# Update Microsoft Defender and scan the still-packed archive.
-Update-MpSignature
-Start-MpScan -ScanType CustomScan -ScanPath $archive
-
-# After extraction, scan the complete directory before running any file.
-$extracted = (Resolve-Path -LiteralPath 'C:\path\to\extracted-driver').Path
-Start-MpScan -ScanType CustomScan -ScanPath $extracted
-```
-
-Review **Windows Security → Virus & threat protection → Protection history** after
-both scans. You may also search the SHA-256 on
-[VirusTotal](https://www.virustotal.com/gui/home/search); searching a hash avoids
-uploading the proprietary archive to another service. A clean scan lowers risk but
-does not prove that an old kernel driver is safe or compatible.
+> **Archive-content warning:** inspection of the extracted-drivers ZIP found the
+> expected 2012–2013 Onyx files, but also `unins000.exe` and `unins000.dat` dated
+> 2026-07-31. Those additional uninstall artefacts are not part of the validated
+> baseline. Do not execute them; copy only the expected files listed below into
+> `driver\`, and scan them locally before use.
 
 ## Why this project ?
 
